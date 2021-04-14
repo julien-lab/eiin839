@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- The title of the page is written in the tab of the browser. -->
+    <title>My first Web Services UI client</title>
+
+    <!-- Let's load the CSS file.
+    Note: we could also write the style directly in the html page, inside a <style> tag. -->
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <!-- We will use a <div> to group all items related to the API key, to ease the styling. -->
+    <div id="apiKeyBlock">
+        <!-- The "for" attribute of a label is linked to the id of an input -->
+        <label for="apiKey">API key:</label>
+        <input name="apiKeyInput" id="apiKey">
+    </div>
+
+    <div id="step1" class="step">
+        <h2>Step 1: Retrieve all JCDecaux contracts</h2>
+        <!-- onclick is an attribute that contains javascript code, triggered when the element is clicked. -->
+        <button id="retrieveContractsButton" onclick="retrieveAllContracts();">Retrieve contracts</button>
+    </div>
+
+    <div id="step2" class="step">
+        <h2>Step 2: Select a contract</h2> 
+        <!-- onclick is an attribute that contains javascript code, triggered when the element is clicked. -->
+        <label for="contract">Choose a contract :</label>
+        <input name="contractInput" id="contract" list="contractsDatalist">
+        <datalist id="contractsDatalist"></datalist>
+        <button id="retrieveContractsStation" onclick="retrieveContractStations();">Retrieve contract stations</button>
+    </div>
+
+    <div id="step3" class="step">
+        <h2>Step 3: Set the location</h2>
+        <!-- onclick is an attribute that contains javascript code, triggered when the element is clicked. -->
+        <label for="locationLat">Latitude</label>
+        <input name="contractLat" id="locationLat">
+        <label for="locationLong">Longitude</label>
+        <input name="contractLong" id="locationLong">
+        <button onclick="getNearestStation();">Get nearest station</button>
+        <h3 id="nearestStation"></h3>
+    </div>
+
+    <!-- Let's load the JS file.
+    Note: we could also write the javascript directly in the html page, inside a <script> tag. -->
+    <script type="text/javascript" src="main.js"></script>
+</body>
+</html>
